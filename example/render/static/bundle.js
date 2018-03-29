@@ -370,9 +370,9 @@ require.define("/index.js",function(require,module,exports,__dirname,__filename,
 var geohash = (function () {
     var gh = require('geohash');
     return {
-        encode : gh.encodeGeoHash.bind(gh),
-        decode : gh.decodeGeoHash.bind(gh),
-        sub : gh.subGeohashes.bind(gh)
+        encode : gh.encode.bind(gh),
+        decode : gh.decode.bind(gh),
+        sub : gh.subs.bind(gh)
     };
 })();
 
@@ -483,7 +483,7 @@ GeoHash.prototype.refineInterval = function (interval, cd, mask) {
   else interval[1] = (interval[0] + interval[1])/2
 }
 
-GeoHash.prototype.encodeGeoHash = function (latitude, longitude) {
+GeoHash.prototype.encode = function (latitude, longitude) {
   var self = this
   var isEven = 1
   var i = 0
@@ -527,7 +527,7 @@ GeoHash.prototype.encodeGeoHash = function (latitude, longitude) {
   return geohash
 }
 
-GeoHash.prototype.decodeGeoHash =  function (geohash) {
+GeoHash.prototype.decode =  function (geohash) {
   var self = this
   var isEven = 1
   var lat = []
@@ -615,7 +615,7 @@ GeoHash.prototype.hashLengthForWidthHeight = function(width, height) {
   return self.MAX_PRECISION
 }
 
-GeoHash.prototype.subGeohashes = function (baseGeohash) {
+GeoHash.prototype.subs = function (baseGeohash) {
   var self = this
   var hashes = []
   for (var i = 0; i < self.BASE32.length; i++) {
@@ -628,8 +628,8 @@ GeoHash.prototype.subGeohashes = function (baseGeohash) {
 GeoHash.prototype.geohashRange = function (lat, lon, radius) {
   var diff = radius / 111034 // convert from meters to degrees
   diff = diff / 2 // square diameter -> radius
-  var upper = this.encodeGeoHash(lat + diff, lon + diff)
-  var lower = this.encodeGeoHash(lat - diff, lon - diff)
+  var upper = this.encode(lat + diff, lon + diff)
+  var lower = this.encode(lat - diff, lon - diff)
   return [lower, upper]  
 }
 

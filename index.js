@@ -2,9 +2,9 @@ var inside = require('point-in-polygon');
 var geohash = (function () {
     var gh = require('geohash');
     return {
-        encode : gh.encodeGeoHash.bind(gh),
-        decode : gh.decodeGeoHash.bind(gh),
-        subs : gh.subGeohashes.bind(gh)
+        encode : gh.encode.bind(gh),
+        decode : gh.decode.bind(gh),
+        subs : gh.subs.bind(gh)
     };
 })();
 
