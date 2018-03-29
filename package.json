@@ -1,0 +1,49 @@
+{
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  },
+  "bin": {},
+  "bugs": {
+    "url": "https://github.com/substack/polygon-hash/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "commondir": "~0.0.1",
+    "geohash": "git://github.com/maxogden/geohash-js.git",
+    "point-in-polygon": "~0.0.0"
+  },
+  "deprecated": false,
+  "description": "generate an array of geohashes that completely contain a polygon",
+  "devDependencies": {
+    "tap": "~0.2.5"
+  },
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "engine": {
+    "node": ">=0.6"
+  },
+  "homepage": "https://github.com/substack/polygon-hash",
+  "keywords": [
+    "geohash",
+    "polygon",
+    "shapefile",
+    "point",
+    "lat",
+    "lon"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "polygon-hash",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/substack/polygon-hash.git"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "version": "0.0.0"
+}
